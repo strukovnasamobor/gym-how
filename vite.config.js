@@ -1,0 +1,43 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-512-maskable.png', 'i18n/en.json', 'i18n/hr.json'],
+      workbox: {
+        // Don't hijack Firebase Auth's reserved paths with the SPA fallback —
+        // the popup needs the real /__/auth/handler served by Firebase Hosting.
+        // Also exclude /.well-known/ so assetlinks.json is served as-is, not index.html.
+        navigateFallbackDenylist: [/^\/__\//, /^\/\.well-known\//],
+      },
+      manifest: {
+        id: "hr.strukovnasamobor.gym_how",
+        name: 'GymHow',
+        short_name: 'GymHow',
+        theme_color: '#000000',
+        background_color: '#ffffff',
+        display: 'standalone',
+        orientation: 'portrait',
+        start_url: '/',
+        icons: [
+          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icons/icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
+        ]
+      },
+    }),
+  ],
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,  // Set to true in production
+        drop_debugger: true,  // Set to true in production
+      },
+    },
+  },
+})

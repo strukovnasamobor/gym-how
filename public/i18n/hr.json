@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "home": "Početna",
+    "exercises": "Vježbe",
+    "profile": "Profil",
+    "planner": "Planer",
+    "settings": "Postavke",
+    "login": "Prijava",
+    "sourceCode": "Izvorni kod",
+    "support": "Podrži projekt",
+    "theme": {
+      "light": "Svijetla",
+      "dark": "Tamna"
+    },
+    "filter": {
+      "sortExercises": "Sortiraj vježbe",
+      "sort": "Sortiranje",
+      "ascendingAz": "Uzlazno (A-Z)",
+      "descendingZa": "Silazno (Z-A)",
+      "common": "Najčešće",
+      "bodyPart": "Dio tijela"
+    }
+  },
+  "profile": {
+    "title": "Moj profil",
+    "loginPrompt": "Prijavi se kako bi pratio svoje omiljene vježbe i personalizirao aplikaciju.",
+    "logout": "Odjavi se",
+    "userFallback": "Korisnik",
+    "favoriteExercises": "Omiljenih vježbi",
+    "favorites": "Omiljene vježbe",
+    "noFavorites": "Nemate omiljene vježbe još.",
+    "favoritesApiUnavailable": "Trenutno ne mogu dohvatiti detalje omiljenih vježbi (API limit).",
+    "tryAgainSoon": "Probajte ponovno za minutu.",
+    "unresolvedFavorites": "Neke omiljene vježbe ({{count}}) trenutno nisu učitane zbog API ograničenja.",
+    "birthDate": "Datum rođenja",
+    "delete": {
+      "action": "Obriši račun",
+      "deleting": "Brišem račun...",
+      "confirm": "Ovo će trajno obrisati tvoj račun i spremljene podatke profila iz baze podataka. Želiš li nastaviti?",
+      "passwordPrompt": "Unesi trenutnu lozinku kako bi potvrdio brisanje računa.",
+      "errors": {
+        "userNotLoggedIn": "Korisnik nije prijavljen.",
+        "reauthFailed": "Ponovna prijava nije uspjela. Pokušaj ponovno.",
+        "wrongPassword": "Lozinka nije točna.",
+        "requiresRecentLogin": "Odjavi se i ponovno prijavi, pa onda pokušaj obrisati račun.",
+        "deleteFailed": "Brisanje računa nije uspjelo. Pokušaj ponovno."
+      }
+    },
+    "auth": {
+      "loginTitle": "Prijava",
+      "registerTitle": "Registracija",
+      "continueWithGoogle": "Nastavi s Google računom",
+      "or": "ili",
+      "username": "Korisničko ime",
+      "password": "Lozinka",
+      "forgotPassword": "Zaboravljena lozinka?",
+      "resetEmailSent": "Email za reset lozinke je poslan. Provjeri inbox.",
+      "verificationSentOnRegister": "Poslan je verifikacijski email. Potvrdi email prije prijave.",
+      "login": "Prijavi se",
+      "register": "Registriraj se",
+      "createAccount": "Stvori račun",
+      "noAccount": "Nemaš račun? ",
+      "alreadyHaveAccount": "Već imaš račun? ",
+      "errors": {
+        "googleLoginFailed": "Google prijava nije uspjela. Pokušaj ponovo.",
+        "invalidEmailOrPassword": "Pogrešan email ili lozinka.",
+        "emailNotVerified": "Email adresa još nije potvrđena.",
+        "invalidEmail": "Unesi ispravnu email adresu.",
+        "userNotFound": "Ne postoji korisnik s tim emailom.",
+        "enterEmailForReset": "Prvo unesi email za reset lozinke.",
+        "enterUsername": "Unesite korisničko ime.",
+        "passwordMinLength": "Lozinka mora imati najmanje 6 znakova.",
+        "emailAlreadyInUse": "Email je već u upotrebi.",
+        "registerFailed": "Registracija nije uspjela. Pokušaj ponovo.",
+        "resetPasswordFailed": "Slanje emaila za reset lozinke nije uspjelo. Pokušaj ponovno."
+      }
+    },
+    "edit": {
+      "title": "Uredi profil",
+      "takePhoto": "Slikaj kamerom",
+      "galleryUpload": "Galerija / Upload",
+      "newPhotoSelected": "Nova profilna je odabrana.",
+      "saving": "Spremam...",
+      "saveChanges": "Spremi promjene",
+      "success": "Profil je uspješno ažuriran.",
+      "errors": {
+        "onlyImage": "Možete odabrati samo sliku za profilnu.",
+        "maxImageSize": "Slika je prevelika. Maksimalna veličina je 5 MB.",
+        "enterEmail": "Unesite email.",
+        "userNotLoggedIn": "Korisnik nije prijavljen.",
+        "requiresRecentLogin": "Za promjenu emaila se morate ponovno prijaviti (odjavite se pa prijavite).",
+        "imageLoadFailed": "Učitavanje slike nije uspjelo. Pokušaj ponovno.",
+        "canvasUnavailable": "Pregled slike nije podržan u ovom pregledniku.",
+        "compressionFailed": "Kompresija slike nije uspjela. Odaberi drugu sliku.",
+        "imageTooLargeAfterCompression": "Slika je prevelika. Odaberi manju sliku ili screenshot.",
+        "saveFailed": "Spremanje promjena nije uspjelo. Pokušaj ponovo."
+      }
+    }
+  },
+  "planner": {
+    "title": "Planer treninga",
+    "subtitle": "Isplaniraj tjedan i prati serije i ponavljanja po vježbi.",
+    "loginPrompt": "Prijavi se kako bi spremio svoj tjedni plan treninga.",
+    "savedToCloud": "Spremljeno u oblak",
+    "localOnly": "Samo lokalno",
+    "loading": "Učitavam planer...",
+    "loadingExercises": "Učitavam vježbe...",
+    "noExercises": "Nema dostupnih vježbi",
+    "addTitle": "Dodaj vježbu u dan",
+    "form": {
+      "helper": "Odaberi dan, vježbu, pa postavi ponavljanja i serije.",
+      "day": "Dan",
+      "exercise": "Vježba",
+      "sets": "Serije",
+      "reps": "Ponavljanja"
+    },
+    "add": "Dodaj u dan",
+    "quickAdd": "Dodaj u plan",
+    "save": "Spremi plan",
+    "saving": "Spremam...",
+    "saved": "Spremljeno",
+    "saveError": "Spremanje nije uspjelo",
+    "remove": "Ukloni vježbu",
+    "emptyDay": "Još nema planiranih vježbi.",
+    "unknownExercise": "Nepoznata vježba",
+    "exercisesCount": "vježbi",
+    "summary": {
+      "weekly": "Tjedni plan",
+      "mobileFriendly": "Prilagođeno mobitelu",
+      "setsReps": "Serije i ponavljanja"
+    },
+    "days": {
+      "monday": "Ponedjeljak",
+      "tuesday": "Utorak",
+      "wednesday": "Srijeda",
+      "thursday": "Četvrtak",
+      "friday": "Petak",
+      "saturday": "Subota",
+      "sunday": "Nedjelja"
+    },
+    "entryCaption": "{{sets}} x {{reps}}"
+  },
+  "heroBanner": {
+  "fitnessClub": "Fitness Klub",
+  "title": "Znoji se, nasmiješi <br /> i ponovi",
+  "subtitle": "Pogledaj najučinkovitije vježbe",
+  "button": "Istraži vježbe",
+  "watermark": "Vježba"
+    },
+    "footer": {
+      "credit": "Trud uložio Mislav Serdar i Lukas Rigo"
+    },
+    "searchExercises": {
+      "title": "Izvrsne vježbe koje <br /> trebate znati",
+      "placeholder": "Pretraži vježbe",
+      "button": "Pretraži"
+    },
+    "apiLimit": {
+      "title": "Dosegnut API limit",
+      "message": "Poslano je previše zahtjeva u kratkom vremenu. Prikazujem cacheirane i zamjenske podatke nekoliko minuta."
+    },
+    "detail": {
+    "addToFavorite": "Dodaj u omiljeno",
+    "removeFromFavorite": "Ukloni iz omiljenih",
+    "addToPlan": "Dodaj u plan",
+    "chooseDayTitle": "Dodaj u plan",
+    "chooseDayHelp": "Odaberi dan za ovu vježbu.",
+    "confirmAdd": "Dodaj u dan",
+    "cancel": "Odustani",
+    "addedToPlanMessage": "Vježba je dodana u plan.",
+    "description": "Vježbe te čine jačim. {{name}} je jedna od najboljih vježbi za {{target}}. Pomoći će ti poboljšati raspoloženje i dobiti energiju.",
+    "instructionsPrefix": "Kako izvesti vježbu {{name}}: {{instructions}}",
+    "dynamicDescriptions": {
+      "0": "{{name}} je usmjerena na {{target}} i odličan je izbor za siguran napredak uz kontroliranu tehniku.",
+      "1": "Uz vježbu {{name}} možeš kvalitetno aktivirati {{target}} i graditi kontinuitet treninga čistim ponavljanjima.",
+      "2": "{{name}} kombinira rad s opremom {{equipment}} i fokus na {{target}}, pa je dobar dodatak uravnoteženom treningu snage.",
+      "3": "Za razvoj mišićne skupine {{bodyPart}}, {{name}} je pouzdana opcija. Drži pravilnu tehniku i postupno povećavaj opterećenje."
+    }
+    },
+    "exerciseVideos": {
+    "loading": "Učitavanje...",
+    "title": "Pogledaj videe vježbe <highlight>{{name}}</highlight>"
+    },
+    "pageExercises": {
+      "title": "Vježbe {{sort}}",
+      "totalExercises": "Ukupno vježbi: {{count}}",
+      "sort": {
+        "az": "A-Z",
+        "za": "Z-A",
+        "common": "prema mišićnoj skupini"
+      }
+    },
+    "similarExercises":{
+        "targetSameMuscleGroup": "Vježbe koje ciljaju istu mišićnu grupu",
+        "exercisesSameEquipment": "Vježbe koje koriste istu opremu"
+    },
+    "exercises": {
+      "showingResults": "Prikaz rezultata"
+    },
+    "bodyParts": {
+      "all": "Sve",
+      "back": "Leđa",
+      "cardio": "Kardio",
+      "chest": "Prsa",
+      "lower arms": "Podlaktice",
+      "lower legs": "Potkoljenice",
+      "neck": "Vrat",
+      "shoulders": "Ramena",
+      "upper arms": "Nadlaktice",
+      "upper legs": "Natkoljenice",
+      "waist": "Struk",
+      "abs": "Trbuh"
+    }
+}

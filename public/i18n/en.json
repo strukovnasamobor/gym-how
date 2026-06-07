@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "home": "Home",
+    "exercises": "Exercises",
+    "profile": "Profile",
+    "planner": "Planner",
+    "settings": "Settings",
+    "login": "Login",
+    "sourceCode": "Source Code",
+    "support": "Support Project",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "filter": {
+      "sortExercises": "Sort exercises",
+      "sort": "Sort",
+      "ascendingAz": "Ascending (A-Z)",
+      "descendingZa": "Descending (Z-A)",
+      "common": "Common",
+      "bodyPart": "Body part"
+    }
+  },
+  "profile": {
+    "title": "My profile",
+    "loginPrompt": "Log in to track your favorite exercises and personalize the app.",
+    "logout": "Log out",
+    "userFallback": "User",
+    "favoriteExercises": "Favorite exercises",
+    "favorites": "Favorites",
+    "noFavorites": "You have no favorite exercises yet.",
+    "favoritesApiUnavailable": "We cannot load favorite exercise details right now (API limit).",
+    "tryAgainSoon": "Please try again in a minute.",
+    "unresolvedFavorites": "Some favorite exercises ({{count}}) are currently unavailable due to API limits.",
+    "birthDate": "Birth date",
+    "delete": {
+      "action": "Delete account",
+      "deleting": "Deleting account...",
+      "confirm": "This will permanently delete your account and saved profile data from data base. Continue?",
+      "passwordPrompt": "Enter your current password to confirm account deletion.",
+      "errors": {
+        "userNotLoggedIn": "User is not logged in.",
+        "reauthFailed": "Reauthentication failed. Please try again.",
+        "wrongPassword": "The password is incorrect.",
+        "requiresRecentLogin": "Please log out and log back in, then try deleting the account again.",
+        "deleteFailed": "Account deletion failed. Please try again."
+      }
+    },
+    "auth": {
+      "loginTitle": "Login",
+      "registerTitle": "Register",
+      "continueWithGoogle": "Continue with Google",
+      "or": "or",
+      "username": "Username",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "resetEmailSent": "Password reset email sent. Check your inbox.",
+      "verificationSentOnRegister": "Verification email sent. Please verify your email before logging in.",
+      "login": "Login",
+      "register": "Register",
+      "createAccount": "Create account",
+      "noAccount": "Don't have an account? ",
+      "alreadyHaveAccount": "Already have an account? ",
+      "errors": {
+        "googleLoginFailed": "Google login failed. Please try again.",
+        "invalidEmailOrPassword": "Wrong email or password.",
+        "emailNotVerified": "Your email is not verified yet.",
+        "invalidEmail": "Please enter a valid email address.",
+        "userNotFound": "No user found for this email.",
+        "enterEmailForReset": "Enter your email first to reset password.",
+        "enterUsername": "Enter a username.",
+        "passwordMinLength": "Password must be at least 6 characters.",
+        "emailAlreadyInUse": "Email is already in use.",
+        "registerFailed": "Registration failed. Please try again.",
+        "resetPasswordFailed": "Could not send password reset email. Please try again."
+      }
+    },
+    "edit": {
+      "title": "Edit profile",
+      "takePhoto": "Take a photo",
+      "galleryUpload": "Gallery / Upload",
+      "newPhotoSelected": "A new profile photo has been selected.",
+      "saving": "Saving...",
+      "saveChanges": "Save changes",
+      "success": "Profile updated successfully.",
+      "errors": {
+        "onlyImage": "You can only choose an image for your profile photo.",
+        "maxImageSize": "Image is too large. Maximum size is 5 MB.",
+        "enterEmail": "Enter an email.",
+        "userNotLoggedIn": "User is not logged in.",
+        "requiresRecentLogin": "To change email, please log in again (log out and log back in).",
+        "imageLoadFailed": "Image loading failed. Please try again.",
+        "canvasUnavailable": "Image preview is not supported in this browser.",
+        "compressionFailed": "Image compression failed. Choose a different image.",
+        "imageTooLargeAfterCompression": "Image is still too large. Choose a smaller image or screenshot.",
+        "saveFailed": "Saving changes failed. Please try again."
+      }
+    }
+  },
+  "planner": {
+    "title": "Workout planner",
+    "subtitle": "Plan your week and track sets and reps for each exercise.",
+    "loginPrompt": "Log in to save your weekly workout plan.",
+    "savedToCloud": "Saved to cloud",
+    "localOnly": "Local only",
+    "loading": "Loading planner...",
+    "loadingExercises": "Loading exercises...",
+    "noExercises": "No exercises available",
+    "addTitle": "Add exercise to a day",
+    "form": {
+      "helper": "Pick a day, choose an exercise, then set your reps and sets.",
+      "day": "Day",
+      "exercise": "Exercise",
+      "sets": "Sets",
+      "reps": "Reps"
+    },
+    "add": "Add to day",
+    "quickAdd": "Add to plan",
+    "save": "Save plan",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "saveError": "Save failed",
+    "remove": "Remove exercise",
+    "emptyDay": "No exercises planned yet.",
+    "unknownExercise": "Unknown exercise",
+    "exercisesCount": "exercises",
+    "summary": {
+      "weekly": "Weekly plan",
+      "mobileFriendly": "Mobile-friendly",
+      "setsReps": "Sets & reps"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "entryCaption": "{{sets}} x {{reps}}"
+  },
+  "heroBanner": {
+    "fitnessClub": "Fitness Club",
+    "title": "Sweat, smile <br /> and Repeat",
+    "subtitle": "Check out the most effective exercises",
+    "button": "Explore exercises",
+    "watermark": "Exercise"
+    },
+    "footer": {
+        "credit": "Effort put in by Mislav Serdar and Lukas Rigo"
+    },
+    "searchExercises": {
+      "title": "Awesome exercises that <br /> you should know",
+      "placeholder": "Search exercises",
+      "button": "Search"
+    },
+    "apiLimit": {
+      "title": "API limit reached",
+      "message": "Too many requests were sent recently. Showing cached and fallback data for a few minutes."
+    },
+    "detail": {
+       "addToFavorite": "Add to Favorites",
+       "removeFromFavorite": "Remove from Favorites",
+      "addToPlan": "Add to plan",
+      "chooseDayTitle": "Add to plan",
+      "chooseDayHelp": "Choose a day for this exercise.",
+      "confirmAdd": "Add to day",
+      "cancel": "Cancel",
+      "addedToPlanMessage": "Exercise added to your plan.",
+       "description": "Exercises keep you strong. {{name}} is one of the best exercises to target your {{target}}. It will help you improve your mood and gain energy.",
+       "instructionsPrefix": "How to do {{name}}: {{instructions}}",
+       "dynamicDescriptions": {
+        "0": "{{name}} focuses on your {{target}} and is a great choice when you want steady progress with controlled form.",
+        "1": "Use {{name}} to challenge your {{target}} while building consistency. Keep your tempo smooth and your reps clean.",
+        "2": "{{name}} combines {{equipment}} work with focused {{target}} activation, making it useful for balanced strength sessions.",
+        "3": "For {{bodyPart}} development, {{name}} is a reliable option. Stay strict with technique and increase difficulty gradually."
+       }
+    },
+    "exerciseVideos": {
+       "loading": "Loading...",
+        "title": "Watch <highlight>{{name}}</highlight> exercise videos"
+    },
+    "pageExercises": {
+      "title": "Exercises {{sort}}",
+      "totalExercises": "Total exercises: {{count}}",
+      "sort": {
+        "az": "A-Z",
+        "za": "Z-A",
+        "common": "by muscle group"
+      }
+    },
+    "similarExercises":{
+        "targetSameMuscleGroup": "Exercises that target the same muscle group",
+        "exercisesSameEquipment": "Exercises that use the same equipment"
+    },
+    "exercises": {
+      "showingResults": "Showing Results"
+    },
+    "bodyParts": {
+      "all": "All",
+      "back": "Back",
+      "cardio": "Cardio",
+      "chest": "Chest",
+      "lower arms": "Lower Arms",
+      "lower legs": "Lower Legs",
+      "neck": "Neck",
+      "shoulders": "Shoulders",
+      "upper arms": "Upper Arms",
+      "upper legs": "Upper Legs",
+      "waist": "Waist",
+      "abs": "Abs"
+    }
+}

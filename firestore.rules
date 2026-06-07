@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Helpers ------------------------------------------------------------
+
+    function signedInOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Validate the shape/size of a users/{uid} document. Each field is optional
+    // (writes use merge:true) but, when present, must be the right type and
+    // bounded in size. photoURL may be a base64 data URL; the client caps it at
+    // 180k chars (see Profile.jsx MAX_DATA_URL_LENGTH), so 300k leaves headroom
+    // while still blocking a 1MB-doc abuse write from a tampered client.
+    function validUserDoc(d) {
+      return d.keys().hasOnly(
+               ['uid', 'displayName', 'email', 'photoURL', 'birthDate', 'favorite', 'createdAt']
+             )
+        && (!('uid' in d)         || (d.uid is string && d.uid.size() <= 128))
+        && (!('displayName' in d) || (d.displayName is string && d.displayName.size() <= 200))
+        && (!('email' in d)       || (d.email is string && d.email.size() <= 320))
+        && (!('photoURL' in d)    || (d.photoURL is string && d.photoURL.size() <= 300000))
+        && (!('birthDate' in d)   || (d.birthDate is string && d.birthDate.size() <= 40))
+        && (!('favorite' in d)    || (d.favorite is list && d.favorite.size() <= 5000))
+        && (!('createdAt' in d)   || (d.createdAt is string && d.createdAt.size() <= 40));
+    }
+
+    // Validate a workoutPlans/{uid} document. userId must match the owner so a
+    // user cannot store a plan claiming another uid. `week` must be a map; its
+    // top-level day-key count is capped. Deeply nested array sizes are bounded
+    // in practice by Firestore's 1MB document limit and the hasOnly allow-list.
+    function validPlanDoc(d, userId) {
+      return d.keys().hasOnly(['userId', 'week', 'createdAt', 'updatedAt'])
+        && d.userId is string && d.userId == userId
+        && d.week is map && d.week.keys().size() <= 31
+        && (!('createdAt' in d) || (d.createdAt is string && d.createdAt.size() <= 40))
+        && (!('updatedAt' in d) || (d.updatedAt is string && d.updatedAt.size() <= 40));
+    }
+
+    // ---- Collections --------------------------------------------------------
+
+    // A user may read/delete ONLY their own profile document, and may only
+    // create/update it with a validated, size-bounded payload.
+    match /users/{userId} {
+      allow read, delete: if signedInOwner(userId);
+      allow create, update: if signedInOwner(userId) && validUserDoc(request.resource.data);
+    }
+
+    // A user may read/delete ONLY their own workout plan, and may only
+    // create/update it with a validated, size-bounded payload.
+    match /workoutPlans/{userId} {
+      allow read, delete: if signedInOwner(userId);
+      allow create, update: if signedInOwner(userId) && validPlanDoc(request.resource.data, userId);
+    }
+
+    // Deny everything else (default-deny, made explicit).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "appId": "hr.strukovnasamobor.gym_how",
+  "appName": "GymHow",
+  "webDir": "dist",
+  "server": {
+    "url": "https://gym-how.web.app",
+    "cleartext": false,
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "path": "android-capacitor"
+  },
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com"]
+    }
+  }
+}

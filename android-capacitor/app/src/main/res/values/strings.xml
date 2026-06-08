@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GymHow</string>
+    <string name="title_activity_main">GymHow</string>
+    <string name="package_name">hr.strukovnasamobor.gym_how</string>
+    <string name="custom_url_scheme">hr.strukovnasamobor.gym_how</string>
+</resources>

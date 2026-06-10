@@ -226,6 +226,42 @@ body {
   body.dark textarea::placeholder {
     color: #cfcfcf !important;
   }
+
+  /* Inputs inside forced-light modals (auth / edit profile) stay light in dark mode too */
+  body.dark .light-surface input,
+  body.dark .light-surface textarea,
+  body.dark .light-surface select {
+    background-color: #fff !important;
+    color: #111 !important;
+    border-color: #e0e0e0 !important;
+    color-scheme: light !important;
+  }
+
+  body.dark .light-surface input::placeholder,
+  body.dark .light-surface textarea::placeholder {
+    color: #999 !important;
+  }
+
+  /* The auth / edit-profile modals are always a white surface, so render all native
+     form controls inside them in light scheme regardless of the OS dark setting.
+     Without this, the Android WebView paints empty input backgrounds dark. */
+  .light-surface {
+    color-scheme: light;
+  }
+
+  /* Browser autofill (saved email/password) paints fields dark in OS dark mode and
+     ignores background-color/color-scheme. The inset box-shadow trick is the only
+     reliable way to keep autofilled fields light inside the forced-light modals. */
+  .light-surface input:-webkit-autofill,
+  .light-surface input:-webkit-autofill:hover,
+  .light-surface input:-webkit-autofill:focus,
+  .light-surface input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    -webkit-text-fill-color: #111 !important;
+    caret-color: #111 !important;
+    color-scheme: light !important;
+  }
   
   * {
     padding: 0px;

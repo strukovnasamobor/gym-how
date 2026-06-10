@@ -2,6 +2,10 @@ import { createContext, useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import {
+  signInWithGoogle as runGoogleCascade,
+  signOutGoogle,
+} from "./lib/googleAuth";
 
 export const AppContext = createContext();
 
@@ -148,6 +152,20 @@ export function AppContextProvider({ children }) {
     }
   };
 
+  // Google sign-in cascade (native picker -> One Tap -> popup). Returns the
+  // Firebase user, or null when the user quietly dismissed. onAuthStateChanged
+  // updates `user`; refresh the Firestore profile for the freshly created doc.
+  const signInWithGoogle = async () => {
+    const signedInUser = await runGoogleCascade();
+    if (signedInUser) await refreshUserProfile();
+    return signedInUser;
+  };
+
+  // Full sign-out: clears One Tap auto-select + cooldown, native plugin, JS SDK.
+  const logoutUser = async () => {
+    await signOutGoogle();
+  };
+
   const setExercises = (nextExercises) => {
     if (typeof nextExercises === "function") {
       setExercisesState((previousExercises) => {
@@ -169,6 +187,8 @@ export function AppContextProvider({ children }) {
         userProfile,
         authLoading,
         refreshUserProfile,
+        signInWithGoogle,
+        logoutUser,
         favorites,
         toggleFavorite,
         exercises,

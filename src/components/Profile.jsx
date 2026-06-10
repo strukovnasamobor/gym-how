@@ -15,7 +15,6 @@ import {
   Button,
 } from "@mui/material";
 import {
-  signInWithPopup,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   sendEmailVerification,
@@ -27,8 +26,9 @@ import {
   reauthenticateWithCredential,
   EmailAuthProvider,
 } from "firebase/auth";
-import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { auth, db, googleProvider } from "../../firebase";
+import { saveUserToFirestore } from "../lib/userDoc";
 import { AppContext } from "../AppContext";
 import { useTranslation } from "react-i18next";
 import {
@@ -50,24 +50,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-//spremi korisnika u Firestore (samo prvi put), ako već postoji, ne dira ga\
-
-async function saveUserToFirestore(firebaseUser, extraData = {}) {
-  const docRef = doc(db, "users", firebaseUser.uid);
-  const existing = await getDoc(docRef);
-  if (!existing.exists()) {
-    await setDoc(docRef, {
-      uid: firebaseUser.uid,
-      displayName: firebaseUser.displayName || extraData.displayName || "",
-      email: firebaseUser.email,
-      photoURL: firebaseUser.photoURL || "",
-      birthDate: extraData.birthDate || "",
-      favorite: [],
-      createdAt: new Date().toISOString(),
-    });
-  }
-}
-
 //Auth Modal
 const AuthModal = ({ onClose }) => {
   const { t } = useTranslation();
@@ -80,17 +62,19 @@ const AuthModal = ({ onClose }) => {
   const [error, setError] = useState("");
   const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
-  const { refreshUserProfile, isDarkMode } = useContext(AppContext);
+  const { refreshUserProfile, signInWithGoogle, isDarkMode } =
+    useContext(AppContext);
 
   const handleGoogleLogin = async () => {
     setLoading(true);
     setError("");
     setInfo("");
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      await saveUserToFirestore(result.user);
-      await refreshUserProfile();
-      onClose();
+      // Runs the cascade (native picker -> One Tap -> popup). Firestore doc
+      // creation + profile refresh happen inside the cascade; a null return
+      // means the user quietly dismissed, so we stop without an error.
+      const signedInUser = await signInWithGoogle();
+      if (signedInUser) onClose();
     } catch (err) {
       setError(t("profile.auth.errors.googleLoginFailed"));
     } finally {
@@ -202,6 +186,9 @@ const AuthModal = ({ onClose }) => {
     outline: "none",
     fontFamily: "Josefin Sans, sans-serif",
     boxSizing: "border-box",
+    backgroundColor: "#fff",
+    color: "#111",
+    colorScheme: "light",
   };
 
   const btnPrimary = {
@@ -574,6 +561,9 @@ const EditProfileModal = ({ onClose, user, userProfile }) => {
     outline: "none",
     fontFamily: "Josefin Sans, sans-serif",
     boxSizing: "border-box",
+    backgroundColor: "#fff",
+    color: "#111",
+    colorScheme: "light",
   };
 
   const handleSave = async () => {
@@ -799,8 +789,15 @@ const EditProfileModal = ({ onClose, user, userProfile }) => {
 
 // ─── Main Profile Component ───────────────────────────────────────────────────
 const Profile = () => {
-  const { user, userProfile, authLoading, favorites, exercises, isDarkMode } =
-    useContext(AppContext);
+  const {
+    user,
+    userProfile,
+    authLoading,
+    favorites,
+    exercises,
+    isDarkMode,
+    logoutUser,
+  } = useContext(AppContext);
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
@@ -1018,7 +1015,9 @@ const Profile = () => {
 
   const handleLogout = async () => {
     setLogoutDialogOpen(false);
-    await signOut(auth);
+    // Full sign-out: clears One Tap auto-select + cooldown (so account-switching
+    // works), signs out the native plugin, then the Firebase JS SDK.
+    await logoutUser();
   };
 
   const handleDeleteAccountClick = () => {

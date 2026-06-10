@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "80753494476",
+    "project_id": "gym-how",
+    "storage_bucket": "gym-how.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80753494476:android:8e6b4de3e264dec17df569",
+        "android_client_info": {
+          "package_name": "hr.strukovnasamobor.gym_how"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80753494476-s1knkr9adq4o5rg2oo6pnt2ar9jr63ie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.strukovnasamobor.gym_how",
+            "certificate_hash": "7a0ce01769bada59f8eb4bf7b1547855cd9cd9c3"
+          }
+        },
+        {
+          "client_id": "80753494476-p4411jr4uqsecji4mbu4i9mnqgs8nvb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpWzczQRBK9hJfiu22h3HFNNML1gKp4oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80753494476-p4411jr4uqsecji4mbu4i9mnqgs8nvb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

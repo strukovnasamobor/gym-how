@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en", // Default language if detection fails
-    debug: true, // Set to false in production
+    debug: false, // Set to false in production
     detection: {
       // Language detection options
       order: ["localStorage", "navigator"],

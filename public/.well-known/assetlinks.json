@@ -1,1 +1,11 @@
-{"test":"test"}
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "hr.strukovnasamobor.ludo_get_angry",
+      "sha256_cert_fingerprints":
+        ["29:7C:79:99:09:BD:EF:4E:A8:C1:41:78:BB:85:EE:2A:40:D1:01:D4:E7:9C:F0:2B:04:8B:FB:13:7F:41:BB:4C"]
+    }
+  }
+]
